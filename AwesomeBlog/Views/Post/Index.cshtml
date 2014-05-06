@@ -1,0 +1,88 @@
+﻿@model IEnumerable<AwesomeBlog.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Blog Posts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+             <body style="color:#0000FF"></body>
+            Author         
+        </th>
+        <th>
+            Title            
+        </th>
+        <th>
+            Body          
+        </th>
+        <th>
+            Likes          
+        </th>
+        <th>
+            Dislikes           
+        </th>
+        <th>
+            
+            Picture
+         
+        </th>
+        <th>
+            Views         
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       <td>
+           @item.PostID
+       </td>
+        <td>
+            @item.title
+        </td>
+        <td>
+            @item.author
+        </td>
+        <td>
+             @if (item.body.Length  > 200) {
+            <small>@item.body.Substring(0, 200) ... </small>
+                 } else {
+                <small>@item.body</small>
+                }
+        </td>
+        <td>
+            @item.likes
+        </td>
+        <td>
+            @item.dislikes
+        </td>
+        <td>
+            @item.picture
+           
+        </td>
+        <td>
+            @item.views
+        </td>
+       
+ 
+            
+        
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostID })
+        </td>
+    </tr>
+}
+
+</table>

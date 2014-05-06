@@ -1,0 +1,71 @@
+﻿@model AwesomeBlog.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.likes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.likes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.picture)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.picture)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dislikes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dislikes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.author)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.author)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.views)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.views)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.body)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.body)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.title)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PostID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

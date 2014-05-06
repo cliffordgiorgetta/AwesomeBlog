@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AwesomeBlog.Models.Post>
+
+@{
+    ViewBag.Title = "Awesome Blog";
+}
+
+<h2>Welcome to my Awesome Blog!</h2>
+
+@foreach (var post in Model)
+{
+    <section>
+        <h1>@post.title</h1>
+        <small>@post.date.ToLongDateString() <br />
+            @post.author
+        </small>
+        @if (!string.IsNullOrEmpty(post.picture))
+        {
+            <th>Hello! please click my URL to proceed to my webstie (:</th>
+            <a href="http://www.youtube.com">
+            <img src =" https://www.seoclerk.com/pics/132792-1ovEex1390006466.jpg" height ="50" length="75" />
+           </a>
+            
+   
+
+        }
+        <div>@post.body</div>
+        <div>
+            <small>
+                This post has @post.likes amount of likes</small>
+            
+        </div>
+
+
+    </section>
+    
+    
+    
+}

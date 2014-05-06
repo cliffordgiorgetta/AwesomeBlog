@@ -1,0 +1,115 @@
+﻿@model AwesomeBlog.Models.Post
+
+@{
+    ViewBag.Title = "Create New Post";
+}
+
+<h2>Create New Post</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Post</legend>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.author)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.author)
+            @Html.ValidationMessageFor(model => model.author)
+        </div>
+
+           <div class="editor-label">
+            @Html.LabelFor(model => model.date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.date)
+            @Html.TextBox("date", DateTime.Now)
+            @Html.ValidationMessageFor(model => model.date)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.body)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.body, 10, 50, new object { })
+            @Html.ValidationMessageFor(model => model.body)
+        </div>
+
+           @Html.Hidden("views", 0)
+        @Html.Hidden("likes", 0)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.likes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.likes)
+            @Html.ValidationMessageFor(model => model.likes)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.dislikes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.dislikes)
+            @Html.ValidationMessageFor(model => model.dislikes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.picture)
+        </div>
+        <div class="editor-field">
+               
+            @Html.EditorFor(model => model.picture)
+            @Html.ValidationMessageFor(model => model.picture)
+        </div>
+
+
+<a href="www.youtube.com">
+            <img src =" http://images6.alphacoders.com/316/316963.jpg" height ="250" length="250" />
+           </a>
+        <th>Example <--------</th>
+
+
+       
+
+        
+
+    <!-- this is a comment in HTML
+        this can also go mulitple 
+        line.
+        -->
+
+        <!-- set required integers to 0 -->
+  
+     
+        
+
+       
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
