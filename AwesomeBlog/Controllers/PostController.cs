@@ -13,11 +13,13 @@ namespace AwesomeBlog.Controllers
     {
         private myBlogEntities db = new myBlogEntities();
 
+      
         //
         // GET: /Post/
 
         public ActionResult Index()
         {
+            
             return View(db.Posts.ToList());
         }
 

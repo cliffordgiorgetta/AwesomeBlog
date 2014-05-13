@@ -1,11 +1,16 @@
 ﻿/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+
 body {
-    font-size: 1em;
+    font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color:black;
-    text-align:center;
-   background-color:#476961;
+    color: blue;
+  
+   
+  
+
     
 }
 
@@ -63,75 +68,17 @@ textarea {
 .validation-summary-valid {
     display: none;
 }
-h1{
-    align:center; font-size:30px;
+
+
+p{
+    font-family:Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
 }
 
 
-
-#footer {
-    position: relative;
-    background-color:#3b3b3b;
-    height:50px;
-    width:100%;
-    text-align:center;
-    color:#656961;
-    clear:both;
+.mydiv {
+    height:200px;   
+    width:200px;
+    background-color:blue;
+    border:10px dashed green;
+    border-radius:100%;
 }
-
-
-
-#header {
-    
-    z-index: 1;
-    background-color:#3b3b3b;
-    height:11%;
-    width:100%;
-    text-align:center;
-    color:white;
-    font-size:4em;
-    font-family:'Arial Black', Gadget, sans-serif;
-    position:fixed;
-
-}
-#notHeader {
-    height:64px;
-    width:100%; 
-}
-.text {
-     
-            width: 340px;
-            height: 155px;
-            background: #FFF;
-            opacity: 0;
-        }
-.pic {
-
-            width: 400px;
-            height: 217px;
-            background: url(http://www.corelangs.com/css/box/img/tiger.png) no-repeat;
-
-           
-        }
-.pic:hover .text {
-        
-            opacity: 0.6;
-            text-align: justify;
-            color: #000000;
-            font-size: 20px;
-            font-weight: 700;
-            font-family: "Times New Roman", Times, serif;
-            padding: 30px;
-        }
-
-#border{
-    border-color:blue;
-    border-style:double;
-    border:5px dashed blue;
-    margin:0 25% 0 25%;
-}
-
-.p {
-    font-color:blue;
-}
-

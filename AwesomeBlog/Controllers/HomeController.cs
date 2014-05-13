@@ -22,5 +22,44 @@ namespace AwesomeBlog.Controllers
          
         }
 
+        public ActionResult Like(int id)
+        {
+            var post = db.Posts.Where(x => x.PostID == id).First();
+            post.likes += 1;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
+        public ActionResult addComment(int id, FormCollection values)
+        {
+            // making a new comment
+            var comment = new Models.Comment();
+            comment.PostID = id;
+            comment.author = values["Author"];
+            comment.body = values["Body"];
+            comment.date = DateTime.Now;
+            comment.likes = 0;
+            db.Comments.Add(comment);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
+        public ActionResult advertisement()
+        {
+            return View();
+        }
+        public ActionResult videogames()
+        {
+            return View();
+        }
+        public ActionResult email()
+        {
+            return View();
+        }
+
+
+
     }
 }

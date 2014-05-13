@@ -4,11 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="myBlogModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="myBlogModelStoreContainer">
-          <EntitySet Name="Comments" EntityType="myBlogModel.Store.Comments" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Posts" EntityType="myBlogModel.Store.Posts" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Comments_Posts" Association="myBlogModel.Store.FK_Comments_Posts">
+      <Schema Namespace="newBlogModels.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="newBlogModelsStoreContainer">
+          <EntitySet Name="Comments" EntityType="newBlogModels.Store.Comments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Posts" EntityType="newBlogModels.Store.Posts" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Comments_Posts" Association="newBlogModels.Store.FK_Comments_Posts">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
@@ -40,8 +40,8 @@
           <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="150" />
         </EntityType>
         <Association Name="FK_Comments_Posts">
-          <End Role="Posts" Type="myBlogModel.Store.Posts" Multiplicity="1" />
-          <End Role="Comments" Type="myBlogModel.Store.Comments" Multiplicity="*" />
+          <End Role="Posts" Type="newBlogModels.Store.Posts" Multiplicity="1" />
+          <End Role="Comments" Type="newBlogModels.Store.Comments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Posts">
               <PropertyRef Name="PostID" />
@@ -51,14 +51,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="myBlogModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="myBlogEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Comments" EntityType="myBlogModel.Comment" />
-          <EntitySet Name="Posts" EntityType="myBlogModel.Post" />
-          <AssociationSet Name="FK_Comments_Posts" Association="myBlogModel.FK_Comments_Posts">
+      <Schema Namespace="newBlogModels" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="newblogconstring" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Comments" EntityType="newBlogModels.Comment" />
+          <EntitySet Name="Posts" EntityType="newBlogModels.Post" />
+          <AssociationSet Name="FK_Comments_Posts" Association="newBlogModels.FK_Comments_Posts">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
@@ -74,7 +75,7 @@
           <Property Name="author" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="PostID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Post" Relationship="myBlogModel.FK_Comments_Posts" FromRole="Comments" ToRole="Posts" />
+          <NavigationProperty Name="Post" Relationship="newBlogModels.FK_Comments_Posts" FromRole="Comments" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -89,11 +90,11 @@
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="body" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="title" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Comments" Relationship="myBlogModel.FK_Comments_Posts" FromRole="Posts" ToRole="Comments" />
+          <NavigationProperty Name="Comments" Relationship="newBlogModels.FK_Comments_Posts" FromRole="Posts" ToRole="Comments" />
         </EntityType>
         <Association Name="FK_Comments_Posts">
-          <End Role="Posts" Type="myBlogModel.Post" Multiplicity="1" />
-          <End Role="Comments" Type="myBlogModel.Comment" Multiplicity="*" />
+          <End Role="Posts" Type="newBlogModels.Post" Multiplicity="1" />
+          <End Role="Comments" Type="newBlogModels.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Posts">
               <PropertyRef Name="PostID" />
@@ -108,9 +109,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="myBlogModelStoreContainer" CdmEntityContainer="myBlogEntities">
+        <EntityContainerMapping StorageEntityContainer="newBlogModelsStoreContainer" CdmEntityContainer="newblogconstring">
           <EntitySetMapping Name="Comments">
-            <EntityTypeMapping TypeName="myBlogModel.Comment">
+            <EntityTypeMapping TypeName="newBlogModels.Comment">
               <MappingFragment StoreEntitySet="Comments">
                 <ScalarProperty Name="commentID" ColumnName="commentID" />
                 <ScalarProperty Name="views" ColumnName="views" />
@@ -123,7 +124,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Posts">
-            <EntityTypeMapping TypeName="myBlogModel.Post">
+            <EntityTypeMapping TypeName="newBlogModels.Post">
               <MappingFragment StoreEntitySet="Posts">
                 <ScalarProperty Name="PostID" ColumnName="PostID" />
                 <ScalarProperty Name="likes" ColumnName="likes" />

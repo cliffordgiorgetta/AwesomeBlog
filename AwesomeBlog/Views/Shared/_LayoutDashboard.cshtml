@@ -1,20 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+ <link href="/Content/Dashboard.css" type="text/css" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <header>
+        <h1 color:blue; My Awesome Blog Dashboard</h1>
+    </header>
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 
 
-    
+  
+
+
+
 
 
 

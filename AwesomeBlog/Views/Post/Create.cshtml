@@ -2,8 +2,37 @@
 
 @{
     ViewBag.Title = "Create New Post";
+    Layout = "/Views/Shared/_LayoutDashboard.cshtml";
 }
 
+
+<header id="header">
+    <div style="float:right; margin-top:-31px;">@Html.TextBox("date", DateTime.Now)</div>
+  
+        <a href="http://localhost:1288/">
+    <img src="http://melissacanfield.com/wp-content/uploads/2014/03/home_icon_black_white_line_art_coloring_book_colouring-999px.png" border="0" align="center" height="80" width="80" />
+</a>
+<a href="http://localhost:1288/post/Create">
+    <img src="http://files.campus.edublogs.org/blog.nus.edu.sg/dist/c/1/thumb/intro_crop.jpg"  align="center" height="80" width="80"  />
+</a>
+    <a href="http://localhost:1288/home/advertisement">
+        <img src="http://www.ieblues.org/images/Advertise.gif" align="center" height="80" width="80" />
+    </a>
+    <a href="http://localhost:1288/home/videogames">
+        <img src="http://www.theandroidscloset.com/wp-content/uploads/2014/03/2051752971_1385077490.jpg" align="center" height="80" width="80" />
+    </a>
+    <a href="http://localhost:1288/home/email">
+        <img src="http://www.jillkonrath.com/Portals/110248/images/email.png" align="center" height="80" width="80" />
+    </a>
+    </header>
+    <header id="notHeader">
+    </header>
+
+
+         <br style="clear: right" />
+    </header>
+    <header id="notHeader">
+    </header>
 <h2>Create New Post</h2>
 
 @using (Html.BeginForm()) {
@@ -12,14 +41,20 @@
 
     <fieldset>
         <legend>Post</legend>
-
+        <p></p>
          <div class="editor-label">
-            @Html.LabelFor(model => model.title)
+             <strong> @Html.LabelFor(model => model.title)</strong>
+           
         </div>
         <div class="editor-field">
+            
             @Html.EditorFor(model => model.title)
             @Html.ValidationMessageFor(model => model.title)
+           
         </div>
+         <style type="text/css">
+    p { margin-left:5em; /* Or another measurement unit, like px */ }
+  </style>
 
 
         <div class="editor-label">
@@ -30,14 +65,29 @@
             @Html.ValidationMessageFor(model => model.author)
         </div>
 
+
+       
            <div class="editor-label">
             @Html.LabelFor(model => model.date)
         </div>
+           
         <div class="editor-field">
             @Html.EditorFor(model => model.date)
             @Html.TextBox("date", DateTime.Now)
             @Html.ValidationMessageFor(model => model.date)
         </div>
+
+         <script>
+             $(document).ready(function () {
+                 $("#date").datepicker();
+
+             });
+    </script>
+   
+
+
+
+
 
 
         <div class="editor-label">
@@ -78,10 +128,6 @@
         </div>
 
 
-<a href="www.youtube.com">
-            <img src =" http://images6.alphacoders.com/316/316963.jpg" height ="250" length="250" />
-           </a>
-        <th>Example <--------</th>
 
 
        

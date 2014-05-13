@@ -150,14 +150,30 @@
     </Compile>
     <Compile Include="Models\blogValidation.cs" />
     <Compile Include="Models\Comment.cs">
-      <DependentUpon>blogDataModel.tt</DependentUpon>
+      <DependentUpon>newblogdatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\newblogdatamodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>newblogdatamodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\newblogdatamodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>newblogdatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\newblogdatamodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>newblogdatamodel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Post.cs">
-      <DependentUpon>blogDataModel.tt</DependentUpon>
+      <DependentUpon>newblogdatamodel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Dashboard.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -231,6 +247,23 @@
       <DependentUpon>blogDataModel.edmx</DependentUpon>
       <LastGenOutput>blogDataModel.cs</LastGenOutput>
     </Content>
+    <EntityDeploy Include="Models\newblogdatamodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>newblogdatamodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\newblogdatamodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>newblogdatamodel.edmx</DependentUpon>
+      <LastGenOutput>newblogdatamodel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\newblogdatamodel.edmx.diagram">
+      <DependentUpon>newblogdatamodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\newblogdatamodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>newblogdatamodel.edmx</DependentUpon>
+      <LastGenOutput>newblogdatamodel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -264,6 +297,12 @@
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\Delete.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutDashboard.cshtml">
+      <BrowseToURL>~/Shared/_LayoutDashboard</BrowseToURL>
+    </Content>
+    <Content Include="Views\Home\Advertisement.cshtml" />
+    <Content Include="Views\Home\videogames.cshtml" />
+    <Content Include="Views\Home\email.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

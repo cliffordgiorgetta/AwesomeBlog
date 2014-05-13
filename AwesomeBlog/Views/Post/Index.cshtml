@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "/Views/Shared/_LayoutDashboard.cshtml";
 }
 
 <h2>Blog Posts</h2>
@@ -49,9 +50,11 @@
         <td>
             @item.title
         </td>
+        <br />
         <td>
             @item.author
         </td>
+        <br />
         <td>
              @if (item.body.Length  > 200) {
             <small>@item.body.Substring(0, 200) ... </small>

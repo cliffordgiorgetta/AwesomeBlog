@@ -4,35 +4,122 @@
     ViewBag.Title = "Awesome Blog";
 }
 
-<h2>Welcome to my Awesome Blog!</h2>
+<header id="header">
+    <div style="float:right; margin-top:-31px;">@Html.TextBox("date", DateTime.Now)</div>
+        <a href="http://localhost:1288/">
+    <img src="http://melissacanfield.com/wp-content/uploads/2014/03/home_icon_black_white_line_art_coloring_book_colouring-999px.png" border="0" align="center" height="80" width="80" /></a>
+<a href="http://localhost:1288/post/Create">
+    <img src="http://files.campus.edublogs.org/blog.nus.edu.sg/dist/c/1/thumb/intro_crop.jpg"  align="center" height="80" width="80"  /></a>
+    <a href="http://localhost:1288/home/advertisement">
+        <img src="http://www.ieblues.org/images/Advertise.gif" align="center" height="80" width="80" /></a>
+    <a href="http://localhost:1288/home/videogames">
+        <img src="http://www.theandroidscloset.com/wp-content/uploads/2014/03/2051752971_1385077490.jpg" align="center" height="80" width="80" /></a>
+    <a href="http://localhost:1288/home/email">
+        <img src="http://www.jillkonrath.com/Portals/110248/images/email.png" align="center" height="80" width="80" /></a>
+
+    </header>
+    <header id="notHeader">
+    </header>
+
+<br />
+<br />
+<br />
+<img src="http://i1060.photobucket.com/albums/t450/TTG_Supraa/Welcome.png" border="0" align="center" height="120" length="10000" />
+<br />
+<br />
+<br />
+<br />
+
+<body>
+       
+    <div class="pic">
+        <div class="text">The tiger is the largest cat species, reaching a total body length of up to 3.3 m and weighing up to 306 kg. Its most recognizable feature is a pattern of dark vertical stripes on reddish-orange fur with a lighter underside. 
+        </div></div>
+    
+  
+
+   </div>
+</body>
+
+<br />
+<br />
+<p id="create">Click 'Create a Blog' to create your own post!</p>
+<br />
+<br />
+<p2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p2>
+<p2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p2>
+<br />
+<br />
+<br />
+<br />
+
 
 @foreach (var post in Model)
 {
+  
+        
+    
     <section>
-        <h1>@post.title</h1>
-        <small>@post.date.ToLongDateString() <br />
-            @post.author
-        </small>
-        @if (!string.IsNullOrEmpty(post.picture))
-        {
-            <th>Hello! please click my URL to proceed to my webstie (:</th>
-            <a href="http://www.youtube.com">
-            <img src =" https://www.seoclerk.com/pics/132792-1ovEex1390006466.jpg" height ="50" length="75" />
-           </a>
-            
-   
+        
+<div id="border" >
 
-        }
+
+
+        
+     
+        <h1>Post Title:@post.title</h1>
+        <small>@post.date.ToLongDateString()
+            <br />
+            Author: @post.author
+        </small>
+        <br />
+
         <div>@post.body</div>
         <div>
-            <small>
-                This post has @post.likes amount of likes</small>
-            
+            This post has @post.likes amount of likes
+            </div>
+    <br />
+        <div class="comments" > 
+        
+          @foreach (var comment in post.Comments)
+          {
+              <div>
+                  @comment.author posted on @comment.date
+                  @comment.body
+              </div>
+          }
+           
+        
+    @using (Html.BeginForm("addComment", "Home", new { id = post.PostID }))
+    {
+        <label for="author">Author:</label>
+         <label for="body"></label>
+        <input type="text" name="author" />
+       <br />
+        <textarea name="body">Comment</textarea>
+        <br />
+        <input type="submit" value="Add Comment" />     
+    }
         </div>
+       
 
 
-    </section>
-    
-    
-    
+        <a href="@Url.Action("Like", "Home", new {id = post.PostID})">
+            <br />
+            Give it some fame!</a>    
+            </div>
+        @if (!string.IsNullOrEmpty(post.picture))
+        {
+           
+        }
+
+
+        @if (!(post == Model.Last()))
+        {
+            
+        }   
+  
+        </section>
 }
+
+ 
